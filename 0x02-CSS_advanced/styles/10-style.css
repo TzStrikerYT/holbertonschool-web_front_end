@@ -33,6 +33,10 @@ h1, h2, h3, h4, h5, h5 {
     color: var(--color-primary);
 }
 
+.section-header {
+    text-align: var(--section-header-align);
+}
+
 :root {
     --color-primary: #d73953; /* Variables in CSS */
     --color-black: #090909;
@@ -52,4 +56,5 @@ h1, h2, h3, h4, h5, h5 {
     --line-height-small: 1.2;
     --line-height-base: 1.5;
     --line-height-big: 1.8;
+    --section-header-align: center;
 }
