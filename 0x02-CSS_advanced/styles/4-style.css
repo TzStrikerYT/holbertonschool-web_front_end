@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h5 {
 }
 
 :root {
-    --color-primary: #d73953; /* Variables in CSS */
+    --color-primary: #D73953; /* Variables in CSS */
     --color-black: #090909;
     --color-white: #ffffff;
     --color-light-grey: #f3f3f3;
