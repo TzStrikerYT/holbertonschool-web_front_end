@@ -1,0 +1,6 @@
+/* styles for all h* with for statement */
+@for $number from 1 through 5 {
+    h#{$number} {
+	font-size: #{$number}px;
+    }
+}
