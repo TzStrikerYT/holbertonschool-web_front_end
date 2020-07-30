@@ -1,0 +1,13 @@
+/* function (mixin) that sets the margin */
+@mixin margin_px($npixels) {
+    margin-left: $npixels;
+    margin-right: $npixels;
+}
+
+body {
+    @include margin_px(10px);
+}
+
+div {
+    @include margin_px(15px);
+}
