@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+
+    </head>
+    
+
+    <body>
+        <script type="application/javascript">
+        
+        function addPostRow(data) {
+
+            const {id, title, author} = data
+
+            $("body").append(`<p><span>Post created with id ${id}, title: ${title}, author: ${author}</span></p>`)
+        }
+
+        function listPosts() {
+            $.get("http://loclhost:3000/posts", addPostRow())
+        }
+
+        </script>
+    </body>
+
+</html>
