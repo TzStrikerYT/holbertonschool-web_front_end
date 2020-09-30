@@ -19,27 +19,14 @@
             //216 hous is equal to 10 days after today :)
             date.setUTCHours(date.getHours() + 216);
             let result = date.toGMTString();
-            alert(result);
             document.cookie = `firstname=${document.getElementById("firstname").value}; expires=${result}`;
             document.cookie = `email=${document.getElementById("email").value}; expires=${result}`;
         }
 
         function showCookies() {
             const pTag = document.createElement("p");
-            pTag.innerHTML = `Email: ${getCookie("email")} - Firstname: ${getCookie("firstname")}`;
+            pTag.innerHTML = `Cookies: ${document.cookie}`;
             document.querySelector("body").append(pTag);
-        }
-
-        function getCookie(name) {
-            const keys = document.cookie.split("; ");
-            for (let i in keys) {
-                let beutyKey = keys[i].split("=");
-
-                if (beutyKey[0] == name) {
-                    return beutyKey[1];
-                }
-            }
-            return "";
         }
     </script>
 </body>
