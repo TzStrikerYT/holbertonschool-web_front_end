@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+</head>
+<body>
+    <div class="form">
+        <h2>Login to the website</h2>
+        <input type="text" id="firstname" placeholder="Firstname">
+        <input type="email" id="email" placeholder="email">
+        <button onclick="setCookies()">Log me in</button>
+    </div>
+    <script>
+        function setCookies() {
+        Cookies.remove("firstname", { path: "" });
+        Cookies.remove("email", { path: "" });
+        Cookies.set("firstname", document.getElementById("firstname").value, {
+          expires: 10,
+        });
+        Cookies.set("email", document.getElementById("email").value, {
+          expires: 10,
+        });
+        showWelcomeMessageOrForm();
+      }
+
+      function showCookies() {
+        const pTag = document.createElement("p");
+        pTag.innerHTML = `Email: ${Cookies.get("email")} - firstname:${Cookies.get("firstname")}`;
+        document.querySelector("body").append(pTag);
+      }
+
+      function getCookie(name) {
+        const keys = Cookies.get().split("; ");
+        for (let i in keys) {
+          let beutyKey = keys[i].split("=");
+
+          if (beutyKey[0] == name) {
+            return beutyKey[1];
+          }
+        }
+        return "";
+      }
+
+      function showForm() {
+        if (document.getElementById("welcome")) document.getElementById("welcome").remove()  
+            document.querySelector(".form").style.display = "block"
+        }
+
+        function hideForm() {
+            document.querySelector(".form").style.display = "none"
+        }
+
+        function deleteCookiesAndShowForm() {
+            showForm();
+            Cookies.remove("firstname", { path: "" });
+            Cookies.remove("email", { path: "" });
+        }
+
+        function showWelcomeMessageOrForm() {
+            if (Cookies.get("firstname")) hideForm();
+            
+            var h = document.createElement("h1");
+            h.setAttribute("id", "welcome");
+            var t = document.createTextNode(`Welcome ${Cookies.get("firstname")} `);
+            h.appendChild(t);
+            document.body.appendChild(h);
+
+            const h1 = document.querySelector("h1")
+            const link = document.createElement("a")
+            var text = document.createTextNode(`(logout)`);
+            link.appendChild(text);
+            h1.appendChild(link);
+
+            link.addEventListener("click", deleteCookiesAndShowForm);
+        }
+    </script>
+</body>
+</html>
