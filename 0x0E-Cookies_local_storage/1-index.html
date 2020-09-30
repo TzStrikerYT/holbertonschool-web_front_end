@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="email" id="email" placeholder="email">
+    <button onclick="setCookies()">Log me in</button>
+    <h1>Cookies</h1>
+    <button onclick="showCookies()">Show the cookies</button>
+
+    <script>
+        function setCookies() {
+            let date = new(Date);
+            //216 hous is equal to 10 days after today :)
+            date.setUTCHours(date.getHours() + 216);
+            let result = date.toGMTString();
+            alert(result);
+            document.cookie = `firstname=${document.getElementById("firstname").value}; expires=${result}`;
+            document.cookie = `email=${document.getElementById("email").value}; expires=${result}`;
+        }
+
+        function showCookies() {
+            const pTag = document.createElement("p");
+            pTag.innerHTML = `Email: ${getCookie("email")} - Firstname: ${getCookie("firstname")}`;
+            document.querySelector("body").append(pTag);
+        }
+
+        function getCookie(name) {
+            const keys = document.cookie.split("; ");
+            for (let i in keys) {
+                let beutyKey = keys[i].split("=");
+
+                if (beutyKey[0] == name) {
+                    return beutyKey[1];
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+</html>
