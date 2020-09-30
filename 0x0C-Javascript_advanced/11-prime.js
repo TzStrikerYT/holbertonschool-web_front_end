@@ -10,4 +10,4 @@ function countPrimeNumbers() {
 
   let finish = window.performance.now();
   let miliseconds = finish - start;
-  console.log("Execution time of printing countPrimeNumbers was " + miliseconds + " miliseconds");
+  console.log("Execution time of calculating prime numbers 100 times was " + miliseconds + " miliseconds");
